@@ -1,0 +1,29 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+  disable:
+    - file_option: go_package_prefix
+      module: buf.build/bufbuild/protovalidate
+  override:
+    - file_option: go_package
+      module: buf.build/xplate/apis
+      path: inputer/v1
+      value: github.com/naivary/xplate/api/inputer/v1
+    - file_option: go_package
+      module: buf.build/xplate/apis
+      path: outputer/v1
+      value: github.com/naivary/xplate/api/outputer/v1
+plugins:
+  - remote: buf.build/protocolbuffers/go
+    out: api
+    opt:
+    - paths=import
+    - module=github.com/naivary/xplate/api
+  - remote: buf.build/grpc/go:v1.5.1
+    out: api
+    opt: 
+      - paths=import
+      - module=github.com/naivary/xplate/api
+inputs:
+  - directory: proto

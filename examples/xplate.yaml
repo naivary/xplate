@@ -1,0 +1,8 @@
+server: "localhost:8080" 
+inputer:
+  - url: "git::..."
+outputer:
+  - url: "git::..."
+funcs:
+  - name: "used for prefixing the functions"
+    url: "..."
